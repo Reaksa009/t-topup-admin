@@ -1,0 +1,444 @@
+@import "tailwindcss";
+
+:root {
+  --bg-body: #0b0f19;
+  --text-primary: #cbd5e1;
+  --bg-slate-955-solid: #0b0f19; /* background solid */
+  --bg-slate-950-solid: #0b0f19;
+  --bg-slate-900-solid: #0f172a;
+  --border-card-subtle: #1e293b;
+  --border-card: #1e293b;
+  --text-muted: #94a3b8;
+  --text-slate-350: #cbd5e1;
+  --text-slate: #cbd5e1;
+  --text-white-dynamic: #ffffff;
+  --glassmorphism-bg: rgba(15, 23, 42, 0.7);
+  --glassmorphism-border: rgba(255, 255, 255, 0.05);
+}
+
+body.light-mode {
+  --bg-body: #f8fafc;
+  --text-primary: #1e293b;
+  --bg-slate-955-solid: #f1f5f9;
+  --bg-slate-950-solid: #f1f5f9;
+  --bg-slate-900-solid: #ffffff;
+  --border-card-subtle: #e2e8f0;
+  --border-card: #cbd5e1;
+  --text-muted: #475569;
+  --text-slate-350: #1e293b;
+  --text-slate: #0f172a;
+  --text-white-dynamic: #0f172a;
+  --glassmorphism-bg: rgba(255, 255, 255, 0.85);
+  --glassmorphism-border: rgba(0, 0, 0, 0.08);
+}
+
+@theme {
+  --color-slate-950: var(--bg-slate-950-solid);
+  --color-slate-900: var(--bg-slate-900-solid);
+  --color-slate-850: var(--border-card-subtle);
+  --color-slate-800: var(--border-card);
+  --color-slate-400: var(--text-muted);
+  --color-slate-350: var(--text-slate-350);
+  --color-slate-300: var(--text-slate);
+  --color-white: var(--text-white-dynamic);
+
+  --animate-scale-in: scale-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-fade-in: fade-in 0.2s ease-out forwards;
+  --animate-slide-up: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Explicit Light Mode Tailwind overrides */
+body.light-mode {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+body.light-mode .bg-\[\#080c21\]\/80 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.light-mode .bg-\[\#0a0d1e\]\/40 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+body.light-mode .bg-slate-955 {
+  background-color: #f1f5f9 !important;
+}
+
+body.light-mode .bg-slate-950 {
+  background-color: #f1f5f9 !important;
+}
+
+body.light-mode .bg-slate-950\/40 {
+  background-color: rgba(241, 245, 249, 0.7) !important;
+}
+
+body.light-mode .bg-slate-955\/40 {
+  background-color: rgba(241, 245, 249, 0.7) !important;
+}
+
+body.light-mode .bg-slate-900 {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .bg-slate-900\/40 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+body.light-mode .bg-slate-950\/80 {
+  background-color: rgba(241, 245, 249, 0.8) !important;
+}
+
+body.light-mode .border-slate-900 {
+  border-color: #cbd5e1 !important;
+}
+
+body.light-mode .border-slate-850 {
+  border-color: #e2e8f0 !important;
+}
+
+body.light-mode .border-slate-800 {
+  border-color: #cbd5e1 !important;
+}
+
+body.light-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+body.light-mode .text-slate-350 {
+  color: #1e293b !important;
+}
+
+body.light-mode .text-slate-300 {
+  color: #0f172a !important;
+}
+
+body.light-mode .text-slate-200 {
+  color: #0f172a !important;
+}
+
+body.light-mode .text-slate-500 {
+  color: #64748b !important;
+}
+
+body.light-mode .text-white {
+  color: #0f172a !important;
+}
+
+body.light-mode .glassmorphism {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-mode .glassmorphism-dark {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Custom utility classes */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-dark {
+  background: var(--glassmorphism-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glassmorphism-border);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Custom Scrollbar for modern feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-slate-950-solid);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-card-subtle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Transition utility for smooth hover effects */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+/* Ant Design Global Message Notification overrides */
+div.ant-message-notice-content,
+.ant-message-notice-content,
+.ant-message .ant-message-notice-content {
+  background-color: #0f172a !important; /* Dark Slate slate-900 background */
+  background: #0f172a !important;
+  border: 1px solid #1e293b !important; /* border-slate-800 */
+  border-radius: 12px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5) !important;
+  padding: 10px 18px !important;
+}
+
+div.ant-message-notice-content *,
+.ant-message-notice-content *,
+.ant-message-custom-content * {
+  color: #f1f5f9 !important; /* Crisp light grey/white text */
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+/* Light mode overrides for messages if body has light-mode */
+body.light-mode div.ant-message-notice-content,
+body.light-mode .ant-message-notice-content,
+body.light-mode .ant-message .ant-message-notice-content {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode div.ant-message-notice-content *,
+body.light-mode .ant-message-notice-content *,
+body.light-mode .ant-message-custom-content * {
+  color: #1e293b !important;
+}
+
+/* Ant Design Modal Dark Mode overrides */
+.ant-modal-dark .ant-modal-content {
+  background-color: #0f172a !important; /* Dark Slate slate-900 background */
+  border: 1px solid #1e293b !important; /* border-slate-800 */
+  border-radius: 16px !important;
+  color: #ffffff !important;
+}
+
+.ant-modal-dark .ant-modal-header {
+  background-color: transparent !important;
+  border-bottom: 1px solid #1e293b !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.ant-modal-dark .ant-modal-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+
+.ant-modal-dark .ant-modal-close {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+.ant-modal-dark .ant-modal-close:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.ant-modal-dark .ant-input {
+  background-color: #1e293b !important; /* slate-800 */
+  border-color: #334155 !important; /* slate-700 */
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+.ant-modal-dark .ant-input:focus,
+.ant-modal-dark .ant-input:hover {
+  border-color: #3b82f6 !important; /* blue-500 */
+}
+
+.ant-modal-dark .ant-select-selector {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+.ant-modal-dark .ant-select-arrow {
+  color: #94a3b8 !important;
+}
+
+/* Light mode overrides for modal if body has light-mode */
+body.light-mode .ant-modal-dark .ant-modal-content {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+body.light-mode .ant-modal-dark .ant-modal-header {
+  border-bottom: 1px solid #cbd5e1 !important;
+}
+
+body.light-mode .ant-modal-dark .ant-modal-title {
+  color: #0f172a !important;
+}
+
+body.light-mode .ant-modal-dark .ant-modal-close {
+  color: #64748b !important;
+}
+
+body.light-mode .ant-modal-dark .ant-input {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+body.light-mode .ant-modal-dark .ant-select-selector {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Ant Design Global Message Notification overrides (Cromojo Premium Alert Style) */
+div.ant-message-notice-content,
+.ant-message-notice-content,
+.ant-message .ant-message-notice-content {
+  background-color: rgba(15, 23, 42, 0.9) !important; /* Premium dark background */
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+  padding: 12px 24px !important;
+  backdrop-filter: blur(12px) !important;
+  display: inline-block !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Success Left Border */
+div.ant-message-notice-content:has(.ant-message-success),
+.ant-message-notice-content:has(.ant-message-success) {
+  border-left: 4px solid #10b981 !important; /* Emerald green */
+}
+
+/* Error Left Border */
+div.ant-message-notice-content:has(.ant-message-error),
+.ant-message-notice-content:has(.ant-message-error) {
+  border-left: 4px solid #ef4444 !important; /* Rose red */
+}
+
+/* Warning Left Border */
+div.ant-message-notice-content:has(.ant-message-warning),
+.ant-message-notice-content:has(.ant-message-warning) {
+  border-left: 4px solid #f59e0b !important; /* Amber yellow */
+}
+
+/* Info Left Border */
+div.ant-message-notice-content:has(.ant-message-info),
+.ant-message-notice-content:has(.ant-message-info) {
+  border-left: 4px solid #3b82f6 !important; /* Info blue */
+}
+
+/* Icon custom coloring & drop shadow glows */
+.ant-message .anticon {
+  font-size: 16px !important;
+}
+.ant-message .ant-message-success .anticon {
+  color: #10b981 !important;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4)) !important;
+}
+.ant-message .ant-message-error .anticon {
+  color: #ef4444 !important;
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.4)) !important;
+}
+.ant-message .ant-message-warning .anticon {
+  color: #f59e0b !important;
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.4)) !important;
+}
+.ant-message .ant-message-info .anticon {
+  color: #3b82f6 !important;
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.4)) !important;
+}
+
+/* Text Custom Typography & Spacing */
+div.ant-message-notice-content *,
+.ant-message-notice-content *,
+.ant-message-custom-content * {
+  color: #f1f5f9 !important;
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  letter-spacing: -0.01em !important;
+}
+
+.ant-message .ant-message-custom-content span:last-child {
+  color: #f1f5f9 !important;
+  margin-left: 10px !important;
+}
+
+/* Light Mode Overrides */
+body.light-mode div.ant-message-notice-content,
+body.light-mode .ant-message-notice-content,
+body.light-mode .ant-message .ant-message-notice-content {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95)) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode div.ant-message-notice-content *,
+body.light-mode .ant-message-notice-content *,
+body.light-mode .ant-message-custom-content * {
+  color: #0f172a !important;
+}
+
+body.light-mode .ant-message .ant-message-custom-content span:last-child {
+  color: #0f172a !important;
+}
